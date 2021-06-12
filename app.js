@@ -1,5 +1,5 @@
 const weatherAPI = () => {
-	apiKey = 'Your apiKey';
+	apiKey = 'your apiKey';
 
 	// Fetch Weather
 	const fetchWeather = (city) => {
@@ -16,8 +16,6 @@ const weatherAPI = () => {
 		const { temp, humidity } = data.main;
 		const { speed } = data.wind;
 
-		console.log(data);
-
 		document.body.style.backgroundImage = `url(https://source.unsplash.com/1600x900/?${name})`;
 		document.querySelector('.city').innerHTML = `Current Weather in ${name}`;
 		document.querySelector('.temperature').innerHTML = `${Math.floor(temp)}°C`;
@@ -25,15 +23,16 @@ const weatherAPI = () => {
 		document.querySelector('.description').innerHTML = `${description}`;
 		document.querySelector('.humidity').innerHTML = `Humidity: ${humidity}%`;
 		document.querySelector('.wind-speed').innerHTML = `Speed: ${speed} Km/s`;
+		document.querySelector('.weather-info').classList.remove('loading');
 	};
 
 	const defaultWeather = () => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const { latitude, longitude } = position.coords;
-			const revApiKey = 'Your apiKey';
+			const revApiKey = 'your apiKey';
 
 			fetch(
-				`https://apis.mapmyindia.com/advancedmaps/v1/${revApiKey}/rev_geocode?lat=${latitude}&lng=${longitude}`
+				`https://cors-anywhere.herokuapp.com/https://apis.mapmyindia.com/advancedmaps/v1/${revApiKey}/rev_geocode?lat=${latitude}&lng=${longitude}`
 			)
 				.then((response) => response.json())
 				.then((data) => getCityName(data));

@@ -12,7 +12,7 @@ body {
 	align-items: center;
 	height: 100vh;
 	font-family: 'Open Sans', sans-serif;
-	background-image: url(https://source.unsplash.com/1600x900/?lanscape);
+	background: #cfcfcf;
 }
 
 .card {
@@ -60,4 +60,18 @@ body {
 	display: flex;
 	align-items: center;
 	margin: 0.2rem 0rem 1.2rem 0rem;
+}
+
+.weather-info.loading {
+	visibility: hidden;
+}
+
+.weather-info.loading::after {
+	visibility: visible;
+	position: absolute;
+	content: 'Loading...';
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 2rem;
 }
