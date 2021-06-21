@@ -32,7 +32,7 @@ const weatherAPI = () => {
 			const revApiKey = 'jkhgrt897lognn4vjhvtyf672l5wmhu5';
 
 			fetch(
-				`https://cors-anywhere.herokuapp.com/https://apis.mapmyindia.com/advancedmaps/v1/${revApiKey}/rev_geocode?lat=${latitude}&lng=${longitude}`
+				`https://apis.mapmyindia.com/advancedmaps/v1/${revApiKey}/rev_geocode?lat=${latitude}&lng=${longitude}`
 			)
 				.then((response) => response.json())
 				.then((data) => getCityName(data));
