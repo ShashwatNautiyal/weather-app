@@ -16,7 +16,7 @@ const weatherAPI = () => {
 		const { temp, humidity } = data.main;
 		const { speed } = data.wind;
 
-		document.body.style.backgroundImage = `url(https://source.unsplash.com/1600x900/?${name})`;
+		document.body.style.backgroundImage = `url(https://source.unsplash.com/1200x700/?${name})`;
 		document.querySelector('.city').innerHTML = `Current Weather in ${name}`;
 		document.querySelector('.temperature').innerHTML = `${Math.floor(temp)}°C`;
 		document.querySelector('.icon').src = `http://openweathermap.org/img/wn/${icon}.png`;

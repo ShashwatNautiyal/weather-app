@@ -12,7 +12,8 @@ body {
 	align-items: center;
 	height: 100vh;
 	font-family: 'Open Sans', sans-serif;
-	background: #cfcfcf;
+	background-position: center;
+	background-size: cover;
 }
 
 .card {
