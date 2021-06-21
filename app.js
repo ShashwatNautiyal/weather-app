@@ -1,5 +1,5 @@
 const weatherAPI = () => {
-	apiKey = 'your apiKey';
+	apiKey = '14fdec5bf6367e939e39d43cf46d35af';
 
 	// Fetch Weather
 	const fetchWeather = (city) => {
@@ -29,7 +29,7 @@ const weatherAPI = () => {
 	const defaultWeather = () => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const { latitude, longitude } = position.coords;
-			const revApiKey = 'your apiKey';
+			const revApiKey = 'jkhgrt897lognn4vjhvtyf672l5wmhu5';
 
 			fetch(
 				`https://cors-anywhere.herokuapp.com/https://apis.mapmyindia.com/advancedmaps/v1/${revApiKey}/rev_geocode?lat=${latitude}&lng=${longitude}`
