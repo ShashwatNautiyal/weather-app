@@ -16,7 +16,7 @@ const weatherAPI = () => {
 		const { temp, humidity } = data.main;
 		const { speed } = data.wind;
 
-		document.body.style.backgroundImage = `url(https://source.unsplash.com/1200x700/?${name})`;
+		document.body.style.backgroundImage = `url(https://source.unsplash.com/1920x1080/?${name})`;
 		document.querySelector('.city').innerHTML = `Current Weather in ${name}`;
 		document.querySelector('.temperature').innerHTML = `${Math.floor(temp)}°C`;
 		document.querySelector('.icon').src = `http://openweathermap.org/img/wn/${icon}.png`;
@@ -29,10 +29,11 @@ const weatherAPI = () => {
 	const defaultWeather = () => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			const { latitude, longitude } = position.coords;
-			const revApiKey = 'jkhgrt897lognn4vjhvtyf672l5wmhu5';
+			const revApiKey = 'pk.1f35a28001b9024ffb07a3be6b263ad7';
 
 			fetch(
-				`https://cors-anywhere.herokuapp.com/https://apis.mapmyindia.com/advancedmaps/v1/${revApiKey}/rev_geocode?lat=${latitude}&lng=${longitude}`
+				`https://us1.locationiq.com/v1/reverse.php?key=${revApiKey}&lat=${latitude}&lon=
+				${longitude}&format=json`
 			)
 				.then((response) => response.json())
 				.then((data) => getCityName(data));
@@ -40,8 +41,8 @@ const weatherAPI = () => {
 	};
 
 	const getCityName = (data) => {
-		const { city } = data.results[0];
-		fetchWeather(city);
+		console.log(data.address.state);
+		fetchWeather(data.address.city);
 	};
 
 	const search = () => {
